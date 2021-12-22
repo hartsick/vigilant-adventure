@@ -1,0 +1,14 @@
+---
+applications:
+- name: rails_test-((env))
+  buildpacks:
+    - ruby_buildpack
+  env:
+    RAILS_MASTER_KEY: ((rails_master_key))
+    RAILS_ENV: production
+  processes:
+  - type: web
+    instances: ((web_instances))
+    memory: ((web_memory))
+  services:
+  - rails_test-rds-((env))
